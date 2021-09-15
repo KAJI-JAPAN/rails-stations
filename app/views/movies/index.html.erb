@@ -8,7 +8,7 @@
 </head>
 	<body>
 	<% @movie.each do |movie| %>
-	<%= image_tag 'Jocker.jpg' %>
+	<%= movie.image_url %>
 	 <h2><%=movie.name %></h2>
 	 <p><%= movie.description %></p>
 	 <p><%= movie.year %></p>
