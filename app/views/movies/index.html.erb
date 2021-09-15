@@ -6,15 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 </head>
-<body>
-<div>
-	<% @sample.each do |sample| %>
-	<div> <img src="assets/images/Jocker.png" alt="Jocker"></div>
-		<h3><% sample.name %></h3>
-		<p><% sample.description %> </p>
-		<p><% sample.year %></p>
+	<body>
+	<% @movie.each do |movie| %>
+	<%= image_tag 'Jocker.jpg' %>
+	 <h2><%=movie.name %></h2>
+	 <p><%= movie.description %></p>
+	 <p><%= movie.year %></p>
 	<% end %>
-	<p></p>
-</div>
-</body>
+	</body>
 </html>

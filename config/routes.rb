@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'movies', to: 'samples#index'
+  get 'movies', to: 'movies#index'
 end
