@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Document</title>
+</head>
+<body>
+	<%= form_with(model: @movie, url: admin_movies_new_path) do |form| %>
+	<p>映画がタイトル</p>
+		<%= form.text_field :name %>
+		<p>公開年</p>
+		<%= form.text_field :year %>
+		<p>概要</p>
+		<%= form.text_area :image_url %>
+		<p>画像URL</p>
+		<%= form.text_field :description %>
+		<p>上映中か</p>
+		<%= form.text_field :is_showing %>
+		<%= form.submit"保存する"%>
+	<% end %>
+</body>
+</html>

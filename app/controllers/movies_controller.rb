@@ -4,12 +4,17 @@ class MoviesController < ApplicationController
 		@movie = Movie.all
 	end
 
-	# def new
-	# 	@movie = Movie.new(post_params)
-	# end
+	def new
+		@movie = Movie.new
+	end
 
-	# private
-	# 	def post_params
-	# 		params.params.require(:post).permit(:title, :author, :image, post_items_attributes: post_item_params)
-	# 	end
+	def create
+		@movie = Movie.new(post_params)
+		@movie.save!
+	end
+
+	private
+		def post_params
+			params.require(:movie).permit(:name, :year, :image_url, :description, :is_showing )
+		end
 end
