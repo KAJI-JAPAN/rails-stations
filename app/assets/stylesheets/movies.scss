@@ -1,3 +1,31 @@
-// Place all the styles related to the movies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+img {
+	width:50% ;
+}
+.movies_item {
+	display: flex;
+	flex-wrap: wrap;
+}
+.movies_data {
+	margin: 10px;
+	border: solid gray;
+	height: 300px;
+	width: 30%;
+	text-align: center;
+	padding: 20px 0 0;
+}
+.search {
+	text-align: right;
+	width: 90%;
+	#search {
+		width: 30%;
+		margin: 30px;
+		height: 30px;
+	}
+	.check_box {
+		text-align: right;
+	}
+}
+.radio {
+	text-align: right;	
+	width: 80%;
+}

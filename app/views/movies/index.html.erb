@@ -1,31 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+<%= render 'shared/head' %>
+	<title>index</title>
 </head>
 <body>
-<table>
-	<th>ID</th>
-	<th>タイトル</th>
-	<th>公開年</th>
-	<th>概要</th>
-	<th>画像URL</th>
-	<th>上映中か</th>
-	<th>作成日</th>
-	<th>更新日時</th>
-	<% @movie.each do |movie| %>
-	<td><%= movie.id %></td>
-	<td><%= movie.name %> </td>
-	<td> <%= movie.year %>  </td>
-	<td> <%= movie.description%> </td>
-	<td> <%= movie.is_showing %> </td>
-	<td> <%= movie.image_url %> </td>
-	<td> <%= movie.created_at %> </td>
-	<td> <%= movie.updated_at %> </td>
-</table>
-	<% end %>
+	<%= render 'shared/search' %>
 </body>
 </html>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # get 'movies', to: 'movies#index'
-  get '/admin/movies', to: 'movies#index'
-  get '/admin/movies/new', to: 'movies#new'
-  post '/admin/movies/new', to: 'movies#create'
+  scope :admin do
+    resources :movies
+    get 'search', to: 'movies#search'
+  end
 end
