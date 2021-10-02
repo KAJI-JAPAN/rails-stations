@@ -1,3 +1,6 @@
+body {
+	margin: 100px;
+}
 img {
 	width:50% ;
 }
@@ -13,19 +16,28 @@ img {
 	text-align: center;
 	padding: 20px 0 0;
 }
+
+.form {
+	margin-bottom: 10px;
+}
 .search {
-	text-align: right;
-	width: 90%;
-	#search {
-		width: 30%;
-		margin: 30px;
+	text-align: center;
+	#movie_search {
+		width: 50%;
 		height: 30px;
+		margin-right: 5px;
 	}
 	.check_box {
 		text-align: right;
 	}
 }
 .radio {
-	text-align: right;	
+	text-align: right;
 	width: 80%;
+	margin-bottom: 10px;	
+}
+
+.radio_button {
+	display: inline-block;
+	margin-right: 20px;
 }

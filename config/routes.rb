@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :movies
     get 'search', to: 'movies#search'
   end
+  resources :sheets, only: [:index]
 end

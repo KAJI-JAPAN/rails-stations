@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%= render 'shared/head' %>
+    	<%= stylesheet_link_tag 'sheets', media: 'all'%>
+    <title>sheets</title>
+  </head>
+  <body>
+    <div class="screen">
+      <p>スクリーン１</p>
+    </div>
+    <table>
+      <% @sheets.each do |sheet|%>
+      <div class="sheet">
+        <tr><%= sheet.row %>-<%= sheet.column%></tr>
+      </div>
+      <% end %>
+    </table>
+  </body>
+</html>

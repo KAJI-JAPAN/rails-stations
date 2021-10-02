@@ -1,26 +1,32 @@
-	<div class="form">
-		<%= form_with(scope: :movie, url: search_path, method: 'get') do |form| %>
-			<div class="search">
-				<%= form.text_field :search %>
-				<%= form.submit "検索する" %>
-			</div>
-			<div class="radio">
-				<%= form.label :search_radio,"全て" %>
-				<%= form.radio_button :search_radio, :all, checked: true %>
-				<%= form.label :search_radio,"公開中" %>
-				<%= form.radio_button :search_radio, 1 %>
-				<%= form.label :search_radio,"未公開" %>
-				<%= form.radio_button :search_radio, 0 %>
-			</div>
-		<% end %>
-	</div>
+  <div class="form">
+    <%= form_with(scope: :movie, url: search_path, method: 'get') do |form| %>
+      <div class="radio">
+        <div class="radio_button">
+          <%= form.label :search_radio,"全て", value: "all" %>
+          <%= form.radio_button :search_radio, :all, checked: true %>
+        </div>
+        <div class="radio_button">
+          <%= form.label :search_radio,"公開中", value: :published %>
+          <%= form.radio_button :search_radio, :published %>
+        </div>
+        <div class="radio_button">
+          <%= form.label :search_radio,"公開予定", value: :unpublished %>
+          <%= form.radio_button :search_radio, :unpublished %>
+        </div>
+      </div>	
+      <div class="search">
+        <%= form.text_field :search %>
+        <%= form.submit "検索する" %>
+      </div>
+    <% end %>
+  </div>
 
-	<div class="movies_item">
-	<% @movies.each do |movie| %>
-		<div class="movies_data">
-			<%= image_tag movie.image_url %> 
-			<p><%= movie.name %> </p>	
-			<p>予約/詳細</p>
-		</div>
-	<% end %>
-	</div>
+  <div class="movies_item">
+  <% @movies.each do |movie| %>
+    <div class="movies_data">
+      <%= image_tag movie.image_url %> 
+      <p><%= movie.name %> </p>	
+      <p>予約/詳細</p>
+    </div>
+  <% end %>
+  </div>
