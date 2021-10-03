@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%= render 'shared/head' %>
+  <title>show</title>
+</head>
+<body>
+    <div class="movies_item">
+    <div class="movies_data">
+      <%= image_tag @movie.image_url %> 
+      <p><%= @movie.name %> </p>	
+      <p>上映期間</p>
+      <p><%= @schedule.start_time %>〜<%= @schedule.end_time %></p>
+    </div>  
+</body>
+</html>

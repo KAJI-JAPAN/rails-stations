@@ -43,6 +43,12 @@ class MoviesController < ApplicationController
     end
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+    @schedule = @movie.schedule.find(@movie.id)
+  end
+
+
   private
 
   def post_params
