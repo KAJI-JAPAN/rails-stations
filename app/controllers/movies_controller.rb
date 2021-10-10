@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @schedule = @movie.schedule.find(@movie.id)
+    @schedule = @movie.schedules.find(@movie.id)
   end
 
 

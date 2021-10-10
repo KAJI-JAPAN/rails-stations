@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%= render 'shared/head' %>
+    <title>schedule/new</title>
+  </head>
+    <body>
+      <%= form_with scope: :schedule, url: movie_schedules_path do |form| %>
+        <div class="field">
+          <%= form.label :start_time, "公開日" %>
+          <%= form.date_field :start_time %>
+        </div>
+        <div class="field">
+          <%= form.label :end_time, "公開終了日" %>  
+          <%= form.date_field :end_time %>
+          <%= form.submit "公開日を決定する" %>
+        </div>
+      <% end %>
+    </body>
+</html>

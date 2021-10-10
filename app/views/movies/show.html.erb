@@ -5,12 +5,17 @@
   <title>show</title>
 </head>
 <body>
-    <div class="movies_item">
     <div class="movies_data">
       <%= image_tag @movie.image_url %> 
       <p><%= @movie.name %> </p>	
-      <p>上映期間</p>
       <p><%= @schedule.start_time %>〜<%= @schedule.end_time %></p>
     </div>  
+
+  <div class="reservation">
+    <%= form_with model: @reservation, url: movie_schedule_sheets_path(movie_id: @movie.id, schedule_id: @schedule.id), method: :get do |f| %>
+      <%= f.select :date, week_reservation %>
+      <%= f.submit "予約する"%>
+    <% end %>
+  </div>
 </body>
 </html>

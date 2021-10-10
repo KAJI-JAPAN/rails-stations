@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_123008) do
+ActiveRecord::Schema.define(version: 2021_10_10_072812) do
 
   create_table "movies", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 160, null: false, comment: "æ˜ ç”»ã\u0081®ã‚¿ã‚¤ãƒˆãƒ«ã€‚é‚¦é¡Œãƒ»æ´‹é¡Œã\u0081¯ä¸€æ—¦è€ƒã\u0081ˆã\u0081ªã\u0081\u008Fã\u0081¦OK"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2021_10_02_123008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "name_UNIQUE", unique: true
+  end
+
+  create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "schedule_id"
+    t.bigint "sheet_id"
+    t.date "date", null: false
+    t.string "email", null: false
+    t.string "name", limit: 50
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["schedule_id"], name: "index_reservations_on_schedule_id"
+    t.index ["sheet_id"], name: "index_reservations_on_sheet_id"
   end
 
   create_table "samples", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -35,8 +47,8 @@ ActiveRecord::Schema.define(version: 2021_10_02_123008) do
 
   create_table "schedules", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "movie_id", null: false
-    t.time "start_time", null: false, comment: "上映開始時刻"
-    t.time "end_time", null: false, comment: "上映終了時刻"
+    t.date "start_time", null: false, comment: "上映開始時刻"
+    t.date "end_time", null: false, comment: "上映終了時刻"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["movie_id"], name: "index_schedules_on_movie_id"

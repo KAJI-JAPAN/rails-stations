@@ -9,7 +9,7 @@ img {
 	flex-wrap: wrap;
 }
 .movies_data {
-	margin: 10px;
+	margin: 10px auto;
 	border: solid gray;
 	height: 300px;
 	width: 30%;
@@ -40,4 +40,9 @@ img {
 .radio_button {
 	display: inline-block;
 	margin-right: 20px;
+}
+
+.reservation {
+	padding: 10px;
+	text-align: center;
 }

@@ -4,6 +4,6 @@ FactoryBot.define do
     sequence(:year) { 2021 }
     sequence(:description) { "この映画は最高です。改行しました"}
     sequence(:image_url) {|n| "Jocker#{n}" }
-    sequence(:is_showing) { 1 }
+    sequence(:is_showing) { 0 }
   end
 end 

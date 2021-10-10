@@ -7,13 +7,15 @@
   </head>
   <body>
     <div class="screen">
-      <p>スクリーン１</p>
+      <p>スクリーン</p>
     </div>
     <table>
-      <% @sheets.each do |sheet|%>
-      <div class="sheet">
-        <tr><%= sheet.row %>-<%= sheet.column%></tr>
-      </div>
+        <% @sheets.each do |sheet|%>
+     <%= link_to new_movie_schedule_reservation_path(movie_id: @movie_id, schedule_id: @schedule_id,date: @date,sheet_id: sheet.id) do %>
+          <div class="sheet">
+            <p><%= sheet.row %><%= sheet.column%></p>
+          </div>
+        <% end %>
       <% end %>
     </table>
   </body>

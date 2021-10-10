@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= render 'shared/head' %>
+  <title>schedules/index</title>
+</head>
+<body>
+  <div>
+    <% @movies.each do |movie| %>
+    <div>
+      <h2><%= movie.name %></h2>
+      <p><%= link_to movie.start_time, "/admin/schedules/#{movie.id}" %></p>
+      <p><%= link_to movie.end_time, "/admin/schedules/#{movie.id}" %></p>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

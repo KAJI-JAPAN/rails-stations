@@ -1,10 +1,20 @@
-table {
-	display: flex;
-	flex-wrap: wrap;
+body {
+	text-align: center;
 }
+
+.screen {
+	padding: 30px;
+	text-align: center;
+	background-color: rgb(79, 95, 95);
+	margin: 0 20px 20px 20px;
+}
+
 .sheet {
-	width: 15%;
+	width: 13%;
 	height: 20%;
 	background-color: aquamarine;
-	display: inline-block;
+	display: inline-block;	
+	margin: 10px;
+	padding: 30px;
+	text-align: center;
 }

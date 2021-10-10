@@ -25,7 +25,7 @@
   <% @movies.each do |movie| %>
     <div class="movies_data">
       <%= image_tag movie.image_url %> 
-      <p><%= movie.name %> </p>	
+      <p><%= link_to movie.name, movie_path(movie.id) %> </p>	
       <p>予約/詳細</p>
     </div>
   <% end %>

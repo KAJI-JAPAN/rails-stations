@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= render 'shared/head' %>
+  <title>schedule/edit</title>
+</head>
+<body>
+  <div>
+    <%= form_with model: @schedule, url: movie_schedule_path do |form| %>
+        <div class="field">
+          <%= form.label :start_time, "公開日" %>
+          <%= form.date_field :start_time %>
+        </div>
+        <div class="field">
+          <%= form.label :end_time, "公開終了日" %>  
+          <%= form.date_field :end_time %>
+          <%= form.submit "公開日を決定する" %>
+        </div>
+    <% end %>
+  </div>
+</body>
+</html>

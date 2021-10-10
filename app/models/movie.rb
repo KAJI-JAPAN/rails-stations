@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-  has_many :schedule
+  has_many :schedules, dependent: :destroy
   enum is_showing: { unpublished: 0, published: 1 }
 
   def self.search(search_params)
