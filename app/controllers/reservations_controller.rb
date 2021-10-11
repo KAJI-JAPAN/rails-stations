@@ -12,13 +12,18 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to movies_path
     else
-      redirect_to new_movie_schedule_reservation_path
+      @movie_id = Movie.find(reservation_params[:schedule_id]).id
+      redirect_to movie_schedule_sheets_path(schedule_id: reservation_params[:schedule_id], movie_id: @movie_id)
     end
   end
 
   private
   def reservation_params
-    params.require(:reservation).permit(:name, :email, :date, :sheet_id, :schedule_id )
+    params.require(:reservation).permit(:name, :email, :date, :sheet_id, :schedule_id)
   end
+
+  # def redirect_params
+  #   params.require(:reservation).permit(:movie_id, :schedule_id)
+  # end
 
 end
