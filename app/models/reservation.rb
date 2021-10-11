@@ -5,5 +5,5 @@ class Reservation < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
   validates :date, presence: true
   validates :schedule_id, presence: true
-  validates :sheet_id, presence: true,  uniqueness: true
+  validates :sheet_id, presence: true,  uniqueness: {scppe: :schedule_id }
 end

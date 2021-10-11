@@ -9,7 +9,7 @@
       <%= image_tag @movie.image_url %> 
       <p><%= @movie.name %> </p>	
       <p><%= @movie.year %></p>
-      <p><%  @movie.description%></p>
+      <p><%=  @movie.description%></p>
       <p><%= @movie.is_showing %></p>
       <% @schedules.each do |s|%>
       <p><%= s.start_time %>〜<%= s.end_time %></p>
@@ -23,6 +23,7 @@
         <%= f.submit "座席を予約する"%>
       <% end %>
     <% end%>
+    <button>座席を予約する</button>
   </div>
 </body>
 </html>
