@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
       redirect_to movies_path
     else
       @movie_id = Movie.find(reservation_params[:schedule_id]).id
-      redirect_to movie_schedule_sheets_path(schedule_id: reservation_params[:schedule_id], movie_id: @movie_id)
+      redirect_to movie_schedule_sheets_path(schedule_id: reservation_params[:schedule_id], movie_id: @movie_id), status: 400
     end
   end
 
