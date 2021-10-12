@@ -12,6 +12,7 @@
       <p>選択中の映画</p>
       <div class="select">
         <%= @movie_id.name %>
+        <%= f.hidden_field :movie_id, value: @movie_id.id%>
       </div>
       <p>選択中の日時</p>
       <div class="select">
