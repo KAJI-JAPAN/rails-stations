@@ -9,7 +9,11 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    if @reservation.save && @reservation.valid?
+    if @reservation.valid?
+      redirect_to movie_schedule_sheets_path(schedule_id: reservation_params[:schedule_id], movie_id: @movie_id, date: reservation_params[:date]), status: 400
+    end
+
+    if @reservation.save
       redirect_to movies_path
     else
       @movie_id = Movie.find(reservation_params[:schedule_id]).id
