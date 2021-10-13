@@ -10,10 +10,11 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(name: reservation_params[:name], email: reservation_params[:email], date: reservation_params[:date], sheet_id: reservation_params[:sheet_id], schedule_id: reservation_params[:schedule_id])
 
-    if @reservation.save
+    if (@reservation.date?) && (@reservation.sheet_id?)
+      @reservation.save
       redirect_to movies_path
-    else
-      redirect_to movie_schedule_sheets_path(schedule_id: reservation_params[:schedule_id], movie_id: reservation_params[:movie_id], date: reservation_params[:date]), status: 400
+    else 
+      redirect_to movie_schedule_sheets_path(schedule_id: reservation_params[:schedule_id], movie_id: reservation_params[:movie_id], date: reservation_params[:date])
     end
   end
 
