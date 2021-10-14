@@ -2,15 +2,15 @@ class ReservationsController < ApplicationController
   # before_action :column_valid, only: [:new]
 
   def new
-    if (params[:date] != nil) && (params[:sheet_id] != nil)
+    # if (params[:date] != nil) && (params[:sheet_id] != nil)
       @reservation = Reservation.new
       @movie_id = Movie.find(params[:movie_id])
       @schedule_id = params[:schedule_id]
       @date = params[:date]
       @sheet_id = params[:sheet_id]
-    else
-      render "movies/new", status: 400
-    end
+    # else
+    #   render "movies/new", status: 400
+    # end
   end
 
   def create
@@ -28,9 +28,9 @@ class ReservationsController < ApplicationController
       params.require(:reservation).permit(:name, :email, :date, :sheet_id, :schedule_id, :movie_id)
     end
 
-    def column_valid
-      if params[:date].nil? or params[:sheet_id].nil?
-        render "movies/new", status: 400
-      end
-    end
+    # def column_valid
+    #   if params[:date].nil? or params[:sheet_id].nil?
+    #     render "movies/new", status: 400
+    #   end
+    # end
 end
