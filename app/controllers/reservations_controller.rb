@@ -8,11 +8,9 @@ class ReservationsController < ApplicationController
       @schedule_id = params[:schedule_id]
       @date = params[:date]
       @sheet_id = params[:sheet_id]
-     if @date.nil? or @sheet_id.nil?
+     if !@date || !@sheet_id
       render status: 400
-     end
-
-     if @data && @sheet_id
+     elsif @date && @sheet_id
       render status: 200
      end
   end
