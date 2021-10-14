@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
 
     def column_valid
       if params[:date].nil? && params[:sheet_id].nil?
-        redirect_to movie_path
+        redirect_to movies_path
       else
         @date = params[:date]
         @sheet_id = params[:sheet_id]
