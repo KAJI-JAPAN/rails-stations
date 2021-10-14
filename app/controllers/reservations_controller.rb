@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     end
 
     def column_valid
-      if params[:date] or params[:sheet_id]
+      if !params[:date] or !params[:sheet_id]
         render "movies/new", status: 400
       else
         @reservation = Reservation.new
