@@ -29,8 +29,15 @@ class ReservationsController < ApplicationController
     end
 
     def column_valid
-      if !params[:date] or !params[:sheet_id]
+      if params[:date] or params[:sheet_id]
         render "movies/new", status: 400
+      else
+        @reservation = Reservation.new
+        @movie_id = Movie.find(params[:movie_id])
+        @schedule_id = params[:schedule_id]
+        @date = params[:date]
+        @sheet_id = params[:sheet_id]
+        render status: 200  
       end
     end
 end
