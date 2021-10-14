@@ -24,7 +24,10 @@ class ReservationsController < ApplicationController
 
     def column_valid
       if params[:date].nil? && params[:sheet_id].nil?
-        render "public/404.html" , status: 400
+        redirect_to movie_path
+      else
+        @date = params[:date]
+        @sheet_id = params[:sheet_id]
       end
     end
 end
