@@ -5,6 +5,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @movie_id = Movie.find(params[:movie_id])
     @schedule_id = params[:schedule_id]
+    @date = params[:date]
+    @sheet_id = params[:sheet_id]
   end
 
   def create
@@ -24,10 +26,8 @@ class ReservationsController < ApplicationController
 
     def column_valid
       if params[:date].nil? && params[:sheet_id].nil?
-        redirect_to movies_path
+        render "movies/new", status: 400
       else
-        @date = params[:date]
-        @sheet_id = params[:sheet_id]
       end
     end
 end
