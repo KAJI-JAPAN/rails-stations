@@ -25,9 +25,8 @@ class ReservationsController < ApplicationController
     end
 
     def column_valid
-      if params[:date].nil? && params[:sheet_id].nil?
+      if params[:date].nil? or params[:sheet_id].nil?
         render "movies/new", status: 400
-      else
       end
     end
 end
