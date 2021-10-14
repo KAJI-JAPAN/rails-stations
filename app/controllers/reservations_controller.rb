@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :column_valid, only: [:new]
+
   def new
     @reservation = Reservation.new
     @date = params[:date]
@@ -18,7 +20,13 @@ class ReservationsController < ApplicationController
   end
 
   private
-  def reservation_params
-    params.require(:reservation).permit(:name, :email, :date, :sheet_id, :schedule_id, :movie_id)
-  end
+    def reservation_params
+      params.require(:reservation).permit(:name, :email, :date, :sheet_id, :schedule_id, :movie_id)
+    end
+
+    def column_valid
+      if params[:date].nil? && params[:sheet_id].nil?
+        render template: "movies/index", status: 400
+      end
+    end
 end
