@@ -1,12 +1,16 @@
 class ReservationsController < ApplicationController
-  before_action :column_valid, only: [:new]
+  # before_action :column_valid, only: [:new]
 
   def new
-    @reservation = Reservation.new
-    @movie_id = Movie.find(params[:movie_id])
-    @schedule_id = params[:schedule_id]
-    @date = params[:date]
-    @sheet_id = params[:sheet_id]
+    if (params[:date] != nil) && (params[:sheet_id] != nil)
+      @reservation = Reservation.new
+      @movie_id = Movie.find(params[:movie_id])
+      @schedule_id = params[:schedule_id]
+      @date = params[:date]
+      @sheet_id = params[:sheet_id]
+    else
+      render "movies/new", status: 400
+    end
   end
 
   def create
