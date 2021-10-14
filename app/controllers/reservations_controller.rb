@@ -5,13 +5,11 @@ class ReservationsController < ApplicationController
     # if (params[:date] != nil) && (params[:sheet_id] != nil)
       @reservation = Reservation.new
       @movie_id = Movie.find(params[:movie_id])
-      @schedule_id ||= params[:schedule_id]
-      @date ||= params[:date]
+      @schedule_id = params[:schedule_id]
+      @date = params[:date]
       @sheet_id = params[:sheet_id]
      if @date.nil? or @sheet_id.nil?
       render status: 400
-     elsif @date.any && @sheet_id.any
-      render status: 200
      end
   end
 
