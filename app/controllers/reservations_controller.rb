@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
       @sheet_id = params[:sheet_id]
      if @date.nil? or @sheet_id.nil?
       render status: 400
-     elsif @date && @sheet_id
+     elsif @date && @sheet_id then
       render status: 200
      end
   end
