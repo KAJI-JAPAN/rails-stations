@@ -6,17 +6,25 @@
     <title>sheets</title>
   </head>
   <body>
+
     <div class="screen">
-      <p>スクリーン</p>
+      <p>Screen</p>
     </div>
     <table>
-        <% @sheets.each do |sheet|%>
-     <%= link_to new_movie_schedule_reservation_path(movie_id: @movie_id, schedule_id: @schedule_id,date: @date,sheet_id: sheet.id) do %>
-          <div class="sheet">
-            <p><%= sheet.row %><%= sheet.column%></p>
-          </div>
+
+      <% @sheets.each do |sheet|%>
+          <% if reservation_list(sheet.id) %>
+            <div class="unavailable">
+              <p><%= sheet.row %><%= sheet.column %></p>
+            </div>
+          <% else %>
+        <%= link_to new_movie_schedule_reservation_path(movie_id: @movie_id, schedule_id: @schedule_id, date: @date,sheet_id: sheet.id) do %>
+            <div class="available">
+              <p><%= sheet.row %><%= sheet.column %></p>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      <% end %> 
     </table>
   </body>
 </html>
