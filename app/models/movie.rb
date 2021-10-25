@@ -12,7 +12,7 @@ class Movie < ApplicationRecord
     end
   end
 
-  def self.allresults(search_params)
+  def self.allresults(search1_params)
     if search_params
       Movie.where( 'name LIKE ? OR description LIKE ?', "%#{ search_params[:search] }%", "%#{ search_params[:search] }%" )
     else
