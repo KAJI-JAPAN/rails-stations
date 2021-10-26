@@ -35,16 +35,6 @@ ActiveRecord::Schema.define(version: 2021_10_11_083637) do
     t.index ["sheet_id"], name: "index_reservations_on_sheet_id"
   end
 
-  create_table "samples", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.integer "year"
-    t.string "description"
-    t.string "image_url"
-    t.integer "is_showing"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "schedules", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "movie_id", null: false
     t.date "start_time", null: false, comment: "上映開始時刻"
