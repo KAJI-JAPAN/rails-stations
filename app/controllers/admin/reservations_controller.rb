@@ -1,6 +1,7 @@
 class Admin::ReservationsController < ApplicationController
   def index
     @reservations = Reservation.joins(:sheet, schedule: :movie).select("schedules.*, reservations.*, reservations.id AS reservations_id, movies.*, sheets.*")
+
   end
 
   def new

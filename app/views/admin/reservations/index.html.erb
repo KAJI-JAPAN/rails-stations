@@ -16,7 +16,7 @@
         <th>シートID</th>
         <th>スケジュールID</th>
         <th>予約日</th>
-        <th>シート番号</th>
+        <th>シートID</th>
         <th>更新日</th>
         <th>作成日</th>
         <th>削除</th>
@@ -28,8 +28,8 @@
           <td> <%= link_to f.movie_id, admin_reservation_path(f.reservations_id) %></td>
           <td><%= f.name %> </td>
           <td><%= f.start_time %>〜<%= f.end_time %></td>
-          <td><%= f.sheet_id %></td>
-          <td><%= f.schedule_id %></td> 
+          <td><%= f.sheet.id %></td>
+          <td><%= f.schedule.id %></td> 
           <td><%= f.date %></td>
           <td><%= f.row %><%= f.column %></td>
           <td><%= f.updated_at%></td>
