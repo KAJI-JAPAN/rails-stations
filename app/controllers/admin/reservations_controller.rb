@@ -10,7 +10,7 @@ class Admin::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(name: reservation_params[:name], email: reservation_params[:email], sheet_id: reservation_params[:sheet_id], schedule_id: reservation_params[:schedule_id])
-   if (@reservation.name?) && (@reservation.email?) && (@reservation.sheet_id?) && (@reservation.schedule_id?)
+   if (@reservation.name) && (@reservation.email) && (@reservation.sheet_id) && (@reservation.schedule_id)
    elsif @reservation.save!
     redirect_to admin_reservations
    else
