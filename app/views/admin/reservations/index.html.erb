@@ -25,7 +25,7 @@
     <% @reservations.each do |f| %>
         <div class="all">
         <tr>
-          <td> <%= link_to f.movie_id, reservation_path(f.reservations_id) %></td>
+          <td> <%= link_to f.movie_id, admin_reservation_path(f.reservations_id) %></td>
           <td><%= f.name %> </td>
           <td><%= f.start_time %>〜<%= f.end_time %></td>
           <td><%= f.sheet.id %></td>
@@ -34,7 +34,7 @@
           <td><%= f.row %><%= f.column %></td>
           <td><%= f.updated_at%></td>
           <td><%= f.created_at%></td>
-          <td><%= link_to "削除する", reservation_path(f.reservations_id), method: :delete %></td>
+          <td><%= link_to "削除する",admin_reservation_path(f.reservations_id), method: :delete %></td>
         </tr>
         </div>
     <% end %>

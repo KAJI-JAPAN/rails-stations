@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%= render 'shared/head' %>
+  <%= stylesheet_link_tag 'reservations', media: 'all'%>
+	<title>new</title>
+</head>
+<body>
+<%# new template  %>
+  <div class="select_all">
+    <%= form_with url: admin_reservations_path, scope: :reservation do |f|%>
+      <h2>予約ページ</h2>
+      <div class="select">
+      <p>映画ID</p>
+      <p>スケージュルID</p>
+        <%= f.text_field :schedule_id %>
+      </div>
+      <p>座席ID</p>
+      <div class="select">  
+        <%= f.text_field :sheet_id %>
+      </div>
+      <p>氏名</p>
+        <%=f.text_field :name%>
+      <p>メールアドレス</p>
+        <%= f.email_field :email%>
+      <div class="select_submit">
+      <%= f.submit "予約を確定する"%>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
