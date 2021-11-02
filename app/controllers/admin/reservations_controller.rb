@@ -5,18 +5,15 @@ class Admin::ReservationsController < ApplicationController
 
   def new
       @reservation = Reservation.new
-      @movie_id = params[:movie_id]
-      @schedule_id = params[:schedule_id]
-      @date = params[:date]
-      @sheet_id = params[:sheet_id]
-      @name = params[:name]
-      @email = params[:email]
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-     @reservation.save!
-    redirect_to admin_reservations
+   if  @reservation.save
+    redirect_to admin_reservation_path
+   else
+    render :new, status: 400 
+   end
   end
 
   def show
