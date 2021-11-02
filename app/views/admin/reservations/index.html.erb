@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render 'shared/head' %>
+    <%= stylesheet_link_tag "reservations", media: 'all'%>
+    <title>index</title>
+  </head>
+<body>
+<%= button_to "新しく作成する", {controller: "reservations", action: "new"}, {method: :get} %>
+  <table>
+    <div class="item_list">
+      <tr>
+        <th>映画ID</th>
+        <th>映画名</th>
+        <th>公開日</th>
+        <th>シートID</th>
+        <th>スケジュールID</th>
+        <th>予約日</th>
+        <th>シートID</th>
+        <th>更新日</th>
+        <th>作成日</th>
+        <th>削除</th>
+      </tr>
+    </div>
+    <% @reservations.each do |f| %>
+        <div class="all">
+        <tr>
+          <td> <%= link_to f.movie_id, admin_reservation_path(f.reservations_id) %></td>
+          <td><%= f.name %> </td>
+          <td><%= f.start_time %>〜<%= f.end_time %></td>
+          <td><%= f.sheet.id %></td>
+          <td><%= f.schedule.id %></td> 
+          <td><%= f.date %></td>
+          <td><%= f.row %><%= f.column %></td>
+          <td><%= f.updated_at%></td>
+          <td><%= f.created_at%></td>
+          <td><%= link_to "削除する",admin_reservation_path(f.reservations_id), method: :delete %></td>
+        </tr>
+        </div>
+    <% end %>
+  </table>
+</body>
+</html>

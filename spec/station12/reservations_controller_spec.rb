@@ -15,7 +15,7 @@ RSpec.describe ReservationsController, type: :controller do
 
     it '予約を全件出力していること' do
       movie        = create(:movie)
-      sheet        = create(:sheets)
+      sheet        = create(:sheet)
       schedule     = create(:schedule, movie_id: movie.id)
       reservations = create_list(:reservation, 3, { sheet_id: sheet.id, schedule_id: schedule.id })
       expect(response.body).to include(reservations.first.name).and include(reservations.last.name) 

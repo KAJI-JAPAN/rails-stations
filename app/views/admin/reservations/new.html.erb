@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%= render 'shared/head' %>
+  	<%= stylesheet_link_tag 'reservations', media: 'all'%>
+	<title>new</title>
+</head>
+<body>
+<%# new template  %>
+  <div class="select_all">
+    <%= form_with url: admin_reservations_path, scope: :reservation do |f|%>
+      <h2>予約ページ</h2>
+      <p>選択中の映画ID</p>
+      <div class="select">
+        <%= f.select :movie_id, value: [1,2,3,4,5] %>
+      </div>
+      <p>選択中の日時</p>
+      <div class="select">
+        <%= f.select :date, value: week_reservation %>
+      </div>
+      <p>スケジュールID</p>
+      <div class="select">
+        <%= f.select :schedule_id, value: [1,2,3,4,5] %>
+      </div>
+      <p>座席ID</p>
+      <div class="select">
+        <%= f.select :sheet_id, value: select_sheet %>
+      </div>
+      <p>氏名</p>
+        <%=f.text_field :name%>
+      <p>メールアドレス</p>
+        <%= f.email_field :email%>
+      <div class="select_submit">
+      <%= f.submit "予約を確定する"%>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

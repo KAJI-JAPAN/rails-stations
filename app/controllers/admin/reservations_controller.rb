@@ -4,17 +4,19 @@ class Admin::ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+      @reservation = Reservation.new
+      @movie_id = params[:movie_id]
+      @schedule_id = params[:schedule_id]
+      @date = params[:date]
+      @sheet_id = params[:sheet_id]
+      @name = params[:name]
+      @email = params[:email]
   end
 
   def create
-    @reservation = Reservation.new(name: reservation_params[:name], email: reservation_params[:email], sheet_id: reservation_params[:sheet_id], schedule_id: reservation_params[:schedule_id])
-   if (@reservation.name) && (@reservation.email) && (@reservation.sheet_id) && (@reservation.schedule_id)
-   elsif @reservation.save!
+    @reservation = Reservation.new(reservation_params)
+     @reservation.save!
     redirect_to admin_reservations
-   else
-    render status: 400 
-    end
   end
 
   def show
@@ -22,7 +24,7 @@ class Admin::ReservationsController < ApplicationController
     @get_movie_id = Schedule.find(@reservation.schedule_id)
     
     if (@reservation.nil?) && (@get_movie_id.nil?)
-      render status: 400
+      render admin_reservation_path, status: 400
     else
       render status: 200
     end
@@ -43,6 +45,6 @@ class Admin::ReservationsController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:name, :email, :sheet_id, :schedule_id, :movie_id)
+      params.require(:reservation).permit(:name, :email, :sheet_id, :schedule_id, :date, movie_id: [:movie_id])
     end
 end

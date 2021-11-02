@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # get 'movies', to: 'movies#index'
-  scope :admin do
+  namespace :admin do
     resources :reservations
   end
   resources :reservations, only: [:create]

@@ -1,2 +1,0 @@
-module Movies　SkipTestHelper
-end
